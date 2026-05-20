@@ -1,0 +1,83 @@
+#!/bin/bash
+# This mirrors the checks/tests that are run in the GH actions triggered via PR. Use this to manually run the checks before pushing to PR branch.
+
+set -e
+
+show_help() {
+	echo "
+Usage:
+  bump-version [version]
+Options:
+  -h    Show this help message
+  "
+	exit 1
+}
+
+check_num_args() {
+  if [[ $1 -lt 0 ]]; then
+    echo "Error: Missing argument(s)"
+    show_help
+    exit 1
+  fi
+
+  if [[ $1 -gt 1 ]]; then
+    echo "Error: Too many arguments"
+    show_help
+    exit 1
+  fi
+}
+
+set_positional_args() {
+  version=$1
+}
+
+run_main() {
+  check_num_args $num_args
+  set_positional_args "${PARAMS[@]}"
+  echo "Bumping version to ${version}..."
+
+  cd mono
+  yarn lerna version ${version} --no-git-tag-version --force-publish
+  yarn lerna run prepare
+  cd ..
+
+  cd development-app
+  rm -rf node_modules
+  yarn install
+  cd ios
+  pod install
+  cd ../..
+
+  cd example-app
+  rm -rf node_modules
+  yarn install
+  cd ios
+  pod install
+  cd ../..
+  
+}
+
+## Parse arguments
+while (($#)); do
+  case "$1" in
+    -h)
+      show_help
+      ;;
+    -*)
+      echo "Error: Invalid option: $1" >&2
+      exit 1
+      ;;
+    *)
+      PARAMS+=($1)
+      shift
+      ;;
+  esac
+done
+
+# Set positional parameters
+eval set -- "$PARAMS"
+
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  run_main "$@"
+fi

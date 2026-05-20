@@ -1,0 +1,246 @@
+package com.radiusnetworks.reactnative.flybuy.core
+
+import com.facebook.react.bridge.Arguments
+import com.facebook.react.bridge.WritableArray
+import com.facebook.react.bridge.WritableMap
+import com.facebook.react.bridge.WritableNativeArray
+import com.radiusnetworks.flybuy.sdk.data.common.Pagination
+import com.radiusnetworks.flybuy.sdk.data.links.LinkDetails
+import com.radiusnetworks.flybuy.sdk.data.onsite.OnSiteArea
+import com.radiusnetworks.flybuy.sdk.data.onsite.OnSiteResult
+import com.radiusnetworks.flybuy.sdk.data.pickup_config.PickupConfig
+import com.radiusnetworks.flybuy.sdk.data.pickup_config.PickupTypeConfig
+import com.radiusnetworks.flybuy.sdk.data.places.Place
+import com.radiusnetworks.flybuy.sdk.data.places.PlaceLocation
+import com.radiusnetworks.flybuy.sdk.data.room.domain.Customer
+import com.radiusnetworks.flybuy.sdk.data.room.domain.Order
+import com.radiusnetworks.flybuy.sdk.data.room.domain.Site
+
+fun parseOrder(order: Order): WritableMap {
+  val map = Arguments.createMap()
+  map.putInt("id", order.id)
+  map.putString("state", order.state)
+  map.putString("customerState", order.customerState)
+  map.putString("partnerIdentifier", order.partnerIdentifier)
+  map.putString("partnerIdentifierForCustomer", order.partnerIdentifierForCustomer)
+  map.putString("partnerIdentifierForCrew", order.partnerIdentifierForCrew)
+  val pickupWindow = Arguments.createArray()
+  pickupWindow.pushString(order.pickupWindow?.start.toString())
+  pickupWindow.pushString(order.pickupWindow?.end.toString())
+  map.putArray("pickupWindow", pickupWindow)
+  map.putString("pickupType", order.pickupType)
+  map.putString("etaAt", order.etaAt?.toString())
+  map.putString("createdAt", order.createdAt?.toString())
+  map.putString("redemptionCode", order.redemptionCode)
+  map.putString("redeemedAt", order.redeemedAt?.toString())
+  map.putString("orderFiredAt", order.orderFiredAt?.toString())
+  order.customerRatingValue?.let { map.putInt("customerRating", it) }
+  map.putString("customerComment", order.customerRatingComments)
+  order.customerRatingCategories?.let { categories ->
+    val categoriesArray = Arguments.createArray()
+    for (category in categories) {
+      categoriesArray.pushString(category)
+    }
+    map.putArray("customerRatingCategories", categoriesArray)
+  }
+  map.putInt("siteID", order.site?.id!!)
+  map.putString("siteName", order.site?.name)
+  map.putString("sitePhone", order.site?.phone)
+  map.putString("siteFullAddress", order.site?.fullAddress)
+  map.putString("siteLongitude", order.site?.longitude)
+  map.putString("siteLatitude", order.site?.latitude)
+  map.putString("siteInstructions", order.site?.instructions)
+  map.putString("siteDescription", order.site?.description)
+  map.putString("siteCoverPhotoURL", order.site?.coverPhotoUrl)
+  map.putString("customerName", order.customer?.name)
+  map.putString("customerCarType", order.customer?.carType)
+  map.putString("customerCarColor", order.customer?.carColor)
+  map.putString("customerLicensePlate", order.customer?.licensePlate)
+  map.putString("spotIdentifier", order.spotIdentifier)
+  map.putBoolean("spotIdentifierEntryEnabled", order.spotIdentifierEntryEnabled)
+  map.putString("spotIdentifierInputType", order.spotIdentifierInputType.toString())
+  map.putString("estimatedReadyAt", order.estimatedReadyAt?.toString())
+  map.putString("partnerIdentifierForCustomer", order.partnerIdentifierForCustomer)
+  map.putString("partnerIdentifierForCrew", order.partnerIdentifierForCrew)
+  map.putString("displayName", order.displayName)
+  map.putString("handoffVehicleLocation", order.handoffVehicleLocation)
+
+  return map
+}
+
+fun parseSites(items: List<Site>): WritableArray {
+  val array = WritableNativeArray()
+  for (item in items) {
+    array.pushMap(parseSite(item))
+  }
+  return array
+}
+
+fun parseOnSiteArea(area: OnSiteArea): WritableMap {
+  val map = Arguments.createMap()
+  map.putInt("id", area.id)
+  map.putString("name", area.name)
+  val pickupTypesArray = Arguments.createArray()
+  area.pickupTypes?.forEach { pickupType ->
+    pickupTypesArray.pushString(pickupType)
+  }
+  map.putArray("pickupTypes", pickupTypesArray)
+  map.putDouble("probability", area.probability)
+  return map
+}
+
+fun parseOnSiteAreas(onSiteAreas: List<OnSiteArea>): WritableArray {
+  val array = WritableNativeArray()
+  for (area in onSiteAreas) {
+    array.pushMap(parseOnSiteArea(area))
+  }
+  return array
+}
+
+fun parseOnSiteResult(onSiteResult: OnSiteResult): WritableMap {
+  val map = Arguments.createMap()
+  map.putMap("site", onSiteResult.site?.let { parseSite(it) })
+  map.putBoolean("isOnSite", onSiteResult.isOnSite)
+  map.putArray("areas", parseOnSiteAreas(onSiteResult.areas))
+
+  return map
+}
+
+fun parseCustomer(customer: Customer): WritableMap {
+  val map = Arguments.createMap()
+  map.putInt("id", customer.id)
+  map.putString("token", customer.apiToken)
+  map.putString("emailAddress", customer.email)
+
+  val info = Arguments.createMap()
+  info.putString("name", customer.name)
+  info.putString("carType", customer.carType)
+  info.putString("carColor", customer.carColor)
+  info.putString("licensePlate", customer.licensePlate)
+  info.putString("phone", customer.phone)
+
+  map.putMap("info", info)
+
+  return map
+}
+
+fun parsePlace(place: Place): WritableMap {
+  val map = Arguments.createMap()
+  map.putString("id", place.id)
+  map.putString("name", place.name)
+  map.putString("placeFormatted", place.placeFormatted)
+  place.distance?.let { map.putDouble("distance", it) }
+  place.address?.let { map.putString("address", it) }
+
+  return map
+}
+
+fun parsePlaces(items: List<Place>): WritableArray {
+  val array = WritableNativeArray()
+  for (item in items) {
+    array.pushMap(parsePlace(item))
+  }
+  return array
+}
+
+fun parsePlaceLocation(placeLocation: PlaceLocation): WritableMap {
+  val map = Arguments.createMap()
+
+  map.putDouble("latitude", placeLocation.latitude)
+  map.putDouble("longitude", placeLocation.longitude)
+
+  return map
+}
+
+
+fun parsePickupConfig(pickupConfig: PickupConfig): WritableMap {
+  val map = Arguments.createMap()
+  map.putString("accentColor", pickupConfig.projectAccentColor)
+  map.putString("accentTextColor", pickupConfig.projectAccentTextColor)
+  map.putString("askToAskImageURL", pickupConfig.askToAskImageUrl)
+  // TODO: availableHandoffVehicleLocation was removed/renamed in FlyBuy SDK; restore when SDK exposes it
+  map.putString("availableHandoffVehicleLocation", "")
+  map.putArray("availablePickupTypes", parsePickupTypeConfigs(pickupConfig.availablePickupTypes))
+  map.putBoolean("customerFeedbackEnabled", pickupConfig.customerFeedbackEnabled)
+  map.putBoolean("customerNameEditingEnabled", pickupConfig.customerNameEditingEnabled)
+  map.putInt("id", pickupConfig.id)
+  // TODO: find a way to parse orderProgressStates
+  map.putBoolean("pickupTypeSelectionEnabled", pickupConfig.pickupTypeSelectionEnabled)
+  map.putString("privacyPolicyURL", pickupConfig.privacyPolicyUrl)
+  map.putString("termsOfServiceURL", pickupConfig.termsOfServiceUrl)
+  map.putString("type", pickupConfig.type)
+  return map
+}
+
+fun parseSite(site: Site): WritableMap {
+  val map = Arguments.createMap()
+  map.putInt("id", site.id)
+  map.putString("name", site.name)
+  map.putString("phone", site.phone)
+  map.putString("streetAddress", site.streetAddress)
+  map.putString("fullAddress", site.fullAddress)
+  map.putString("locality", site.locality)
+  map.putString("region", site.region)
+  map.putString("country", site.country)
+  map.putString("postalCode", site.postalCode)
+  map.putString("latitude", site.latitude)
+  map.putString("longitude", site.longitude)
+  map.putString("coverPhotoUrl", site.coverPhotoUrl)
+  map.putString("instructions", site.instructions)
+  map.putString("description", site.description)
+  map.putString("partnerIdentifier", site.partnerIdentifier)
+  map.putMap("pickupConfig", parsePickupConfig(site.pickupConfig))
+  map.putString("operationalStatus", site.operationalStatus)
+  map.putInt("prearrivalSeconds", site.prearrivalSeconds)
+
+  return map
+}
+
+
+fun parsePickupTypeConfig(pickupTypeConfig: PickupTypeConfig): WritableMap {
+  val map = Arguments.createMap()
+  map.putString("pickupType", pickupTypeConfig.pickupType)
+  map.putString("pickupTypeLocalizedString", pickupTypeConfig.pickupTypeLocalizedString)
+  map.putBoolean("requireVehicleInfo", pickupTypeConfig.requireVehicleInfo)
+  map.putBoolean("showVehicleInfoFields", pickupTypeConfig.showVehicleInfoFields)
+
+  return map
+}
+
+fun parsePickupTypeConfigs(items: List<PickupTypeConfig>): WritableArray {
+  val array = WritableNativeArray()
+  for (item in items) {
+    array.pushMap(parsePickupTypeConfig(item))
+  }
+  return array
+}
+
+fun parsePagination(pagination: Pagination): WritableMap {
+  val map = Arguments.createMap()
+  map.putInt("currentPage", pagination.currentPage)
+  map.putInt("totalPages", pagination.totalPages)
+  return map
+}
+
+fun parseOrders(items: List<Order>): WritableArray {
+  val array = WritableNativeArray()
+  for (item in items) {
+    array.pushMap(parseOrder(item))
+  }
+  return array
+}
+
+fun parseLinkDetails(data: LinkDetails): WritableMap {
+  val map = Arguments.createMap()
+  map.putString("url", data.url)
+  map.putString("type", data.type.name)
+
+  val params = Arguments.createMap()
+  for ((key, value) in data.params) {
+    params.putString(key, value)
+  }
+
+  map.putMap("params", params)
+
+  return map
+}

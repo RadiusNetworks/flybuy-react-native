@@ -1,0 +1,47 @@
+#!/bin/bash
+# This mirrors the checks/tests that are run in the GH actions triggered via PR. Use this to manually run the checks before pushing to PR branch.
+
+set -e
+
+echo ""
+echo "=== Installing mono dependencies ==="
+cd mono && yarn install --immutable
+
+echo ""
+echo "=== Building all packages ==="
+yarn lerna run prepare
+
+echo ""
+echo "=== Linting mono packages ==="
+yarn lerna run lint
+
+echo ""
+echo "=== Testing mono packages ==="
+yarn lerna run test
+
+echo ""
+echo "=== Installing development-app dependencies ==="
+cd ../development-app && yarn install --immutable
+
+echo ""
+echo "=== Linting development-app ==="
+yarn lint
+
+echo ""
+echo "=== Testing development-app ==="
+yarn test
+
+echo ""
+echo "=== Installing example-app dependencies ==="
+cd ../example-app && yarn install --immutable
+
+echo ""
+echo "=== Linting example-app ==="
+yarn lint
+
+echo ""
+echo "=== Testing example-app ==="
+yarn test
+
+echo ""
+echo "=== All checks passed! ==="

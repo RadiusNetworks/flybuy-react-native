@@ -1,0 +1,16 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "lefthook": "^1.7.7",
+    "lerna": "^8.1.6",
+    "typedoc": "^0.28.19",
+    "typedoc-plugin-markdown": "^4.11.0"
+  },
+  "scripts": {
+    "docs:generate:md": "typedoc --options typedoc.json"
+  }
+}

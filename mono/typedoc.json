@@ -1,0 +1,16 @@
+{
+  "entryPointStrategy": "packages",
+  "entryPoints": ["packages/*"],
+  "out": "../docs",
+  "plugin": ["typedoc-plugin-markdown"],
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeExternals": true,
+  "hideGenerator": true,
+  "hideBreadcrumbs": true,
+  "packageOptions": {
+    "entryPointStrategy": "expand",
+    "entryPoints": ["src/index.ts", "src/index.tsx"],
+    "sourceLinkTemplate": "https://github.com/RadiusNetworks/flybuy-react-native/blob/main/{path}#L{line}"
+  },
+}

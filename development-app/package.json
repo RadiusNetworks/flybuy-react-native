@@ -1,0 +1,61 @@
+{
+  "name": "development-app",
+  "version": "0.0.1",
+  "description": "The development app for contributor to test the wrapper changes locally",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios --scheme \"developmentApp\"",
+    "lint": "eslint .",
+    "start": "react-native start",
+    "test": "jest",
+    "watcher": "node ./scripts/watchAndCopy.js core ",
+    "pod": "cd ios && bundle exec pod install"
+  },
+  "dependencies": {
+    "@radiusnetworks/react-native-flybuy-core": "file:../mono/packages/core",
+    "@radiusnetworks/react-native-flybuy-livestatus": "file:../mono/packages/livestatus",
+    "@radiusnetworks/react-native-flybuy-notify": "file:../mono/packages/notify",
+    "@radiusnetworks/react-native-flybuy-pickup": "file:../mono/packages/pickup",
+    "@radiusnetworks/react-native-flybuy-presence": "file:../mono/packages/presence",
+    "react": "19.0.0",
+    "react-native": "^0.79.0",
+    "react-native-config": "^1.6.1",
+    "react-native-permissions": "^5.4.4"
+  },
+  "resolutions": {
+    "@radiusnetworks/react-native-flybuy-core": "file:../mono/packages/core",
+    "@radiusnetworks/react-native-flybuy-livestatus": "file:../mono/packages/livestatus",
+    "@radiusnetworks/react-native-flybuy-notify": "file:../mono/packages/notify",
+    "@radiusnetworks/react-native-flybuy-pickup": "file:../mono/packages/pickup",
+    "@radiusnetworks/react-native-flybuy-presence": "file:../mono/packages/presence"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
+    "@babel/runtime": "^7.25.0",
+    "@react-native-community/cli": "18.0.0",
+    "@react-native-community/cli-platform-android": "18.0.0",
+    "@react-native-community/cli-platform-ios": "18.0.0",
+    "@react-native/babel-preset": "^0.79.0",
+    "@react-native/eslint-config": "^0.79.0",
+    "@react-native/metro-config": "^0.79.0",
+    "@react-native/typescript-config": "^0.79.0",
+    "@testing-library/react-native": "^13.3.3",
+    "@types/jest": "^30.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-test-renderer": "^19.0.0",
+    "babel-jest": "^29.6.3",
+    "chokidar": "^4.0.0",
+    "eslint": "^8.19.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "jest": "^29.2.1",
+    "prettier": "2.8.8",
+    "react-test-renderer": "19.0.0",
+    "typescript": "5.0.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

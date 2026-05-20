@@ -1,0 +1,17 @@
+#!/bin/bash
+# This mirrors the checks/tests that are run in the GH actions triggered via PR. Use this to manually run the checks before pushing to PR branch.
+
+set -e
+
+echo ""
+echo "=== Installing mono dependencies ==="
+cd mono && yarn install --immutable
+
+echo ""
+echo "=== Generating docs ==="
+rm -rf docs
+npx typedoc --options typedoc.json
+cd ..
+
+echo ""
+echo "=== All checks passed! ==="

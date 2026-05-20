@@ -1,0 +1,82 @@
+#!/bin/bash
+# This automates the steps to setup the project after cloning. Use the --clean flag to remove all build artifacts, node_modules, Pods, and caches before setup
+
+set -e
+
+CLEAN=false
+
+while [[ "$#" -gt 0 ]]; do
+  case $1 in
+    --clean) CLEAN=true ;;
+    *) echo "Unknown option: $1"; exit 1 ;;
+  esac
+  shift
+done
+
+echo ""
+echo "=== FlyBuy React Native Setup ==="
+echo ""
+echo "Usage: ./bin/setup.sh [--clean]"
+echo "Options: --clean    Remove all build artifacts, node_modules, Pods, and caches before setup"
+echo ""
+
+if [ "$CLEAN" = true ]; then
+  echo ""
+  echo "=== Cleaning build artifacts and caches ==="
+
+  echo "--- Cleaning mono package builds ---"
+  for pkg in mono/packages/*/; do
+    rm -rf "$pkg/lib"
+    rm -rf "$pkg/node_modules"
+  done
+  rm -rf mono/node_modules
+
+  echo "--- Cleaning development-app ---"
+  rm -rf development-app/node_modules
+  rm -rf development-app/ios/build
+  rm -rf development-app/ios/Pods
+  rm -rf development-app/android/build
+  rm -rf development-app/android/app/build
+
+  echo "--- Cleaning example-app ---"
+  rm -rf development-app/node_modules
+  rm -rf development-app/ios/build
+  rm -rf development-app/ios/Pods
+  rm -rf development-app/android/build
+  rm -rf development-app/android/app/build
+
+  echo "--- Cleaning caches ---"
+  yarn cache clean 2>/dev/null || true
+fi
+
+echo ""
+echo "=== Building SDK packages ==="
+cd mono
+yarn install
+yarn lerna run prepare
+
+echo ""
+echo "=== Installing development-app dependencies ==="
+cd ../development-app
+yarn install
+bundle install
+
+echo ""
+echo "=== Installing development-app iOS pods ==="
+cd ios
+bundle exec pod install --repo-update
+
+echo ""
+echo "=== Installing example-app dependencies ==="
+cd ../../example-app
+yarn install
+bundle install
+
+echo ""
+echo "=== Installing example-app iOS pods ==="
+cd ios
+bundle exec pod install --repo-update
+
+echo ""
+echo "=== Setup complete! ==="
+echo ""
