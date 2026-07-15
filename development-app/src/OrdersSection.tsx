@@ -78,7 +78,7 @@ export const OrdersSection = () => {
     };
     FlyBuyCore.getInstance(selectedAppAuthId)
       .orders.createWithSiteId(
-        selectedAppAuthId === '50' || selectedAppAuthId === '51'
+        selectedAppAuthId === '725' || selectedAppAuthId === '726'
           ? SITE_ID
           : SITE_ID_2,
         options,

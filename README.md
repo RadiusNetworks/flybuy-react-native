@@ -105,30 +105,22 @@ To release a new version of the SDK wrapper:
 1. In terminal:
 
 ```
-cd mono
-yarn lerna version patch --yes
+bin/bump-version 2.x.x
 ```
+where 2.x.x is the new version
 
-This will auto increment the patch for all of the sub packages, create a commit with the version bumps, create a tag and push both the commit and tag.
-
-Optionally, use `minor` or `major` instead of `patch` to auto-increment the associated version number, or manually set the desired version:
-
-```
-yarn lerna version 2.26.1 --yes
-```
-
-Add `--no-push` flag if you prefer to manually push the commit and tag after review.
-
-2. [GitHub Actions](https://github.com/RadiusNetworks/iris-react-native/actions) should detect this tag and run a new build. This will:
+2. Commit and push to `release` branch.
+3. Tag the commit with `v2.x.x` and push to remote.
+4. [GitHub Actions](https://github.com/RadiusNetworks/iris-react-native/actions) should detect this tag and run a new build. This will:
     - Validate the package build process
     - Create a draft-release on GitHub
-    - Message `#eng-iris` that the release is ready for review
+    - Message `#eng-iris-mobile` that the release is ready for review
 
-3. Go to the GitHub draft release, fill out the release notes, publish
+5. Go to the GitHub draft release, fill out the release notes, publish
 
-4. [GitHub Actions](https://github.com/RadiusNetworks/iris-react-native/actions) publishes to npm and posts to `#releases`
+6. [GitHub Actions](https://github.com/RadiusNetworks/iris-react-native/actions) publishes to npm and posts to `#releases`
 
-5. Merge `release` back to `main`
+7. Merge `release` back to `main`
 
 
 ## Contributing

@@ -1,0 +1,26 @@
+#!/bin/bash
+# Resolves FlyBuy xcframeworks via SPM and copies them into each mono package.
+# Called by bin/setup and the publish CI workflow.
+
+set -e
+
+REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+SPM_DIR="$REPO_ROOT/scripts/flybuy-spm"
+
+echo ""
+echo "=== Resolving FlyBuy xcframeworks via SPM ==="
+
+cd "$SPM_DIR"
+swift package resolve
+FLYBUY_CHECKOUT="$SPM_DIR/.build/checkouts/flybuy-ios"
+
+for entry in "core:FlyBuy" "notify:FlyBuyNotify" "pickup:FlyBuyPickup" "presence:FlyBuyPresence" "livestatus:FlyBuyLiveStatus"; do
+  pkg="${entry%%:*}"
+  framework="${entry##*:}"
+  dest="$REPO_ROOT/mono/packages/${pkg}/ios/Frameworks"
+  mkdir -p "$dest"
+  rm -rf "${dest}/${framework}.xcframework"
+  cp -r "${FLYBUY_CHECKOUT}/${framework}.xcframework" "$dest/"
+  chmod -R u+w "${dest}/${framework}.xcframework"
+  echo "  ✓ ${framework}.xcframework → mono/packages/${pkg}/ios/Frameworks/"
+done

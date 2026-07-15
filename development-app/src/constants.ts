@@ -25,8 +25,8 @@ export const CUSTOMER_INFO = {
 };
 
 export const ORDER_ID = 622533;
-export const SITE_ID = 408;
-export const SITE_ID_2 = 869;
+export const SITE_ID = 37494;
+export const SITE_ID_2 = 45307;
 export const NEW_PID = '01380326932';
 export const SITE_PID = '8888';
 

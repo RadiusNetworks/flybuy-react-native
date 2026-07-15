@@ -144,6 +144,7 @@ android {
     packagingOptions {
         pickFirst '**/libc++_shared.so'
         pickFirst '**/libjsc.so'
+        exclude 'META-INF/versions/9/OSGI-INF/MANIFEST.MF'
     }
 }
 
@@ -152,7 +153,7 @@ dependencies {
     implementation("com.facebook.react:react-android")
 
     // Core library desugaring for Java 8+ language features
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
 
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")

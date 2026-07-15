@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import {Platform, SafeAreaView, ScrollView, useColorScheme} from 'react-native';
+import {Platform, ScrollView, useColorScheme} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {CustomerSection} from './CustomerSection';
 import {SitesSection} from './SitesSection';
 import {OrdersSection} from './OrdersSection';
@@ -28,7 +28,8 @@ function App(): React.JSX.Element {
   const [selectedToken, setSelectedToken] = useState(APP_TOKEN);
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    flex: 1,
+    backgroundColor: isDarkMode ? '#222222' : '#F3F3F3',
   };
 
   React.useEffect(() => {
