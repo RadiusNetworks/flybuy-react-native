@@ -62,5 +62,20 @@ target 'development-app' do
     umbrella_dst = File.join(codegen_headers, 'ReactCodegen-umbrella.h')
     FileUtils.cp(modulemap_src, modulemap_dst) if File.exist?(modulemap_src)
     FileUtils.cp(umbrella_src, umbrella_dst) if File.exist?(umbrella_src)
+
+    fmt_base = File.join(installer.sandbox.root, 'fmt/include/fmt/base.h')
+    if File.exist?(fmt_base)
+      content = File.read(fmt_base)
+      old_str = "#elif FMT_MSC_VERSION && FMT_MSC_VERSION < 1929\n#  define FMT_USE_CONSTEVAL 0  // consteval is broken in MSVC VS2019 < 16.10.\n#elif defined(__cpp_consteval)"
+      new_str = "#elif FMT_MSC_VERSION && FMT_MSC_VERSION < 1929\n" \
+                "#  define FMT_USE_CONSTEVAL 0  // consteval is broken in MSVC VS2019 < 16.10.\n" \
+                "#elif FMT_CLANG_VERSION >= 2100\n" \
+                "#  define FMT_USE_CONSTEVAL 0  // Apple clang >= 21 (Xcode 26) has stricter consteval.\n" \
+                "#elif defined(__cpp_consteval)"
+      unless content.include?("FMT_CLANG_VERSION >= 2100")
+        File.chmod(0644, fmt_base)
+        File.write(fmt_base, content.sub(old_str, new_str))
+      end
+    end
   end
 end

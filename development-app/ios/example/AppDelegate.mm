@@ -25,8 +25,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  [[NSUserDefaults standardUserDefaults] setValue:@"https://flybuy-staging.radiusnetworks.com" forKey:@"FlyBuy.API Base URL"];
-  
   self.moduleName = @"example";
   self.dependencyProvider = [RCTAppDependencyProvider new];
   // You can add your custom initial props in the dictionary below.
@@ -41,10 +39,6 @@
   if (appToken2 != nil && appToken2.length > 0) {
     builder = [builder setSecondaryToken:appToken2];
   }
-  builder = [builder setOptions:@{
-    @"FlyBuyInternalLogLevel": @(LogLevelVerbose),
-    @"FlyBuyInternalLogWriteEnabled": @NO
-  }];
   FlyBuyConfigOptions *configOptions = [builder build];
   [FlyBuyCore configureWithOptions:configOptions];
   

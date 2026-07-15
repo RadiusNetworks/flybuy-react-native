@@ -9,6 +9,7 @@ import {
   TextInput,
   ActivityIndicator,
 } from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 import * as FlyBuyCore from '@radiusnetworks/react-native-flybuy-core';
 import {Button} from './components';
@@ -161,7 +162,7 @@ export default function App() {
     setPartnerId(e);
   };
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top', 'bottom']}>
       <Button title="Login" onPress={login} />
       <Header />
       {loading && <ActivityIndicator color="white" size="large" />}
@@ -180,7 +181,7 @@ export default function App() {
           onChangePid(e);
         }}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -214,7 +215,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'green',
-    paddingVertical: 40,
   },
   orderItem: {
     height: 50,

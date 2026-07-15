@@ -1,6 +1,7 @@
 const path = require('path');
 const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
-const exclusionList = require('metro-config/src/defaults/exclusionList');
+const exclusionList =
+  require('metro-config/private/defaults/exclusionList').default;
 
 /**
  * Metro configuration
@@ -29,9 +30,7 @@ const config = {
     }),
     // Exclude any nested node_modules inside your local packages
     // to prevent Metro from seeing multiple versions of the same code.
-    blacklistRE: exclusionList([
-      /mono\/packages\/.*\/node_modules\/.*/,
-    ]),
+    blocklist: exclusionList([/mono\/packages\/.*\/node_modules\/.*/]),
   },
 };
 
