@@ -1778,7 +1778,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-flybuy-core (2.27.0):
+  - react-native-flybuy-core (2.28.1):
     - boost
     - DoubleConversion
     - fast_float
@@ -1806,36 +1806,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-flybuy-livestatus (2.27.0):
-    - boost
-    - DoubleConversion
-    - fast_float
-    - fmt
-    - glog
-    - hermes-engine
-    - RCT-Folly
-    - RCT-Folly/Fabric
-    - RCTRequired
-    - RCTTypeSafety
-    - React-Core
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-ImageManager
-    - React-jsi
-    - react-native-flybuy-core
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-renderercss
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - SocketRocket
-    - Yoga
-  - react-native-flybuy-notify (2.27.0):
+  - react-native-flybuy-livestatus (2.28.1):
     - boost
     - DoubleConversion
     - fast_float
@@ -1864,7 +1835,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-flybuy-pickup (2.27.0):
+  - react-native-flybuy-notify (2.28.1):
     - boost
     - DoubleConversion
     - fast_float
@@ -1893,7 +1864,36 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-flybuy-presence (2.27.0):
+  - react-native-flybuy-pickup (2.28.1):
+    - boost
+    - DoubleConversion
+    - fast_float
+    - fmt
+    - glog
+    - hermes-engine
+    - RCT-Folly
+    - RCT-Folly/Fabric
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - react-native-flybuy-core
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - SocketRocket
+    - Yoga
+  - react-native-flybuy-presence (2.28.1):
     - boost
     - DoubleConversion
     - fast_float
@@ -2835,11 +2835,11 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 8f8bba0802f49d7926602c5c276f2a2083a5ac55
   React-microtasksnativemodule: 1e4d3178ba5d5000b351b902c603fb0c9d60649e
   react-native-config: 2249b7e68644c86ea68358f5a0d746d1c648f900
-  react-native-flybuy-core: f798d599be1f007592f0f0a24e736c6f20777092
-  react-native-flybuy-livestatus: 2aacc75f7d4c5af2e3277ce9ae1915bd9d46db8b
-  react-native-flybuy-notify: 5de3cd7f146cc65a0b833b188412388cdadf2bda
-  react-native-flybuy-pickup: a4a303bf0d101467e411fea599a7f71af28a5dcd
-  react-native-flybuy-presence: dd778584cb87256d9f7cc55f2f84e355bd0357b4
+  react-native-flybuy-core: 59684d0d8fb0b69c67bd0ce3da5d77ae7a9e3c8e
+  react-native-flybuy-livestatus: 0ea1cf3a9410acdd07e06d025e690873c1fb3c5d
+  react-native-flybuy-notify: 8c06ae00d5b6aafad07af81f8f4b88c9f86450e7
+  react-native-flybuy-pickup: 20c857ef2e4b00047dc9a1e2e3304d6fbc158eed
+  react-native-flybuy-presence: 8349acf0546f4bc58fda4d9aa12f95da997f7f71
   react-native-safe-area-context: ebd2c2ece5e6e650a6963184039ec8cfd8960d86
   React-NativeModulesApple: 183f9bd5b20a51a8b016e90be78ed6c1538da4a7
   React-oscompat: d5e3366fbd6c7150e17c1bda85eab583a6fa9fce
