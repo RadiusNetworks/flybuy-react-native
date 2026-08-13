@@ -1,6 +1,6 @@
 {
   "name": "@radiusnetworks/react-native-flybuy-livestatus",
-  "version": "2.28.0",
+  "version": "2.28.1",
   "description": "React Native Wrapper for FlyBuy LiveStatus SDK",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -83,7 +83,7 @@
     "@types/react": "^18.2.44"
   },
   "dependencies": {
-    "@radiusnetworks/react-native-flybuy-core": "^2.28.0"
+    "@radiusnetworks/react-native-flybuy-core": "^2.28.1"
   },
   "peerDependencies": {
     "@radiusnetworks/react-native-flybuy-core": "*",

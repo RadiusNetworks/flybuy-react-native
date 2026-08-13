@@ -2,6 +2,10 @@
 
 # Getting Started
 
+## Step 0: Set app tokens
+
+Create a `.env` files using `.env.example` as a reference and update the app tokens in `.env`.
+
 ## Step 1: Start the Metro Server
 
 First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
