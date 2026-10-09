@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/RadiusNetworks/flybuy-ios",
       "state" : {
-        "revision" : "da5b136bea6038024768913bef9575fd0ef235e1",
-        "version" : "2.13.2"
+        "revision" : "1cff7676be6f56e7af624f7b9a17a990e9df7a71",
+        "version" : "2.13.4"
       }
     }
   ],

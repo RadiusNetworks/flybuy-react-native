@@ -1778,7 +1778,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-flybuy-core (2.28.1):
+  - react-native-flybuy-core (2.29.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -1806,36 +1806,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-flybuy-livestatus (2.28.1):
-    - boost
-    - DoubleConversion
-    - fast_float
-    - fmt
-    - glog
-    - hermes-engine
-    - RCT-Folly
-    - RCT-Folly/Fabric
-    - RCTRequired
-    - RCTTypeSafety
-    - React-Core
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-ImageManager
-    - React-jsi
-    - react-native-flybuy-core
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-renderercss
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - SocketRocket
-    - Yoga
-  - react-native-flybuy-notify (2.28.1):
+  - react-native-flybuy-livestatus (2.29.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -1864,7 +1835,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-flybuy-pickup (2.28.1):
+  - react-native-flybuy-notify (2.29.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -1893,7 +1864,36 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - react-native-flybuy-presence (2.28.1):
+  - react-native-flybuy-pickup (2.29.0):
+    - boost
+    - DoubleConversion
+    - fast_float
+    - fmt
+    - glog
+    - hermes-engine
+    - RCT-Folly
+    - RCT-Folly/Fabric
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - react-native-flybuy-core
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - SocketRocket
+    - Yoga
+  - react-native-flybuy-presence (2.29.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -2514,7 +2514,7 @@ PODS:
     - React-perflogger (= 0.81.6)
     - React-utils (= 0.81.6)
     - SocketRocket
-  - RNPermissions (5.5.1):
+  - RNPermissions (5.6.2):
     - boost
     - DoubleConversion
     - fast_float
@@ -2835,11 +2835,11 @@ SPEC CHECKSUMS:
   React-Mapbuffer: 8f8bba0802f49d7926602c5c276f2a2083a5ac55
   React-microtasksnativemodule: 1e4d3178ba5d5000b351b902c603fb0c9d60649e
   react-native-config: 2249b7e68644c86ea68358f5a0d746d1c648f900
-  react-native-flybuy-core: 59684d0d8fb0b69c67bd0ce3da5d77ae7a9e3c8e
-  react-native-flybuy-livestatus: 0ea1cf3a9410acdd07e06d025e690873c1fb3c5d
-  react-native-flybuy-notify: 8c06ae00d5b6aafad07af81f8f4b88c9f86450e7
-  react-native-flybuy-pickup: 20c857ef2e4b00047dc9a1e2e3304d6fbc158eed
-  react-native-flybuy-presence: 8349acf0546f4bc58fda4d9aa12f95da997f7f71
+  react-native-flybuy-core: 950c9c66edffca3b3f656bef8fd068ae30844db1
+  react-native-flybuy-livestatus: 3e1557bfffa305e5243864fa69173bab545f9639
+  react-native-flybuy-notify: 059f57dcece2c59fc3c3353802a8753913c53400
+  react-native-flybuy-pickup: 35561c55c9d97a39e5e02e19d189165a82921355
+  react-native-flybuy-presence: 3b33dd9598c81eee014de86196c5ee5d322e0f6d
   react-native-safe-area-context: ebd2c2ece5e6e650a6963184039ec8cfd8960d86
   React-NativeModulesApple: 183f9bd5b20a51a8b016e90be78ed6c1538da4a7
   React-oscompat: d5e3366fbd6c7150e17c1bda85eab583a6fa9fce
@@ -2871,7 +2871,7 @@ SPEC CHECKSUMS:
   ReactAppDependencyProvider: 50d5506ddd091d4ed24b88b661ce9a0e17347357
   ReactCodegen: b4ff5f79e481567c6f14115f8314399b64e70268
   ReactCommon: 8fafefb37d562f9e4bbbc9081ca4501f178a97ec
-  RNPermissions: 43508a15aa87e6997038ec61d4c31381ad68689d
+  RNPermissions: 6d21af06566fb7dbff7efbb5dfdbfd4c9cb1f799
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: 3196a843cc5f4bc433f1a41cf17cdf804a01a529
 
