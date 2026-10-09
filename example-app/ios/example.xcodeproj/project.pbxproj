@@ -14,6 +14,7 @@
 		5A4D5E47580ADCB9EBBCD8A4 /* libPods-example-exampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E7988D12AE5B9502D3469F6 /* libPods-example-exampleTests.a */; };
 		77D831F9D9C13694F6515D85 /* libPods-example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48080FC7FF24CF4D5B6763A9 /* libPods-example.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		89AEF006F10D2890FAA7FEA0 /* SceneDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4118C018BE852B9C754E5352 /* SceneDelegate.mm */; };
 		CB257F797FD43A4A37E8C3A4 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = C61BDA3F645B7FCE7750929B /* PrivacyInfo.xcprivacy */; };
 		D47890782E7EE83C00049CCD /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47890772E7EE83C00049CCD /* WidgetKit.framework */; };
 		D478907A2E7EE83C00049CCD /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D47890792E7EE83C00049CCD /* SwiftUI.framework */; };
@@ -82,7 +83,9 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = example/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = example/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		1FB426230582626E40ECDB16 /* Pods-example-exampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example-exampleTests.debug.xcconfig"; path = "Target Support Files/Pods-example-exampleTests/Pods-example-exampleTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4118C018BE852B9C754E5352 /* SceneDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = SceneDelegate.mm; path = example/SceneDelegate.mm; sourceTree = "<group>"; };
 		48080FC7FF24CF4D5B6763A9 /* libPods-example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7412F34A71B8F4A5BF907184 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SceneDelegate.h; path = example/SceneDelegate.h; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = example/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B635C594F00E6A468AA3AD2 /* Pods-example-exampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example-exampleTests.release.xcconfig"; path = "Target Support Files/Pods-example-exampleTests/Pods-example-exampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		8E7988D12AE5B9502D3469F6 /* libPods-example-exampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-example-exampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -161,6 +164,8 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				C61BDA3F645B7FCE7750929B /* PrivacyInfo.xcprivacy */,
+				7412F34A71B8F4A5BF907184 /* SceneDelegate.h */,
+				4118C018BE852B9C754E5352 /* SceneDelegate.mm */,
 			);
 			name = example;
 			sourceTree = "<group>";
@@ -514,6 +519,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				89AEF006F10D2890FAA7FEA0 /* SceneDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

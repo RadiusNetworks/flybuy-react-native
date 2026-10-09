@@ -3758,7 +3758,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radiusnetworks/react-native-flybuy-core@^2.28.1, @radiusnetworks/react-native-flybuy-core@workspace:packages/core":
+"@radiusnetworks/react-native-flybuy-core@^2.29.0, @radiusnetworks/react-native-flybuy-core@workspace:packages/core":
   version: 0.0.0-use.local
   resolution: "@radiusnetworks/react-native-flybuy-core@workspace:packages/core"
   dependencies:
@@ -3793,7 +3793,7 @@ __metadata:
   dependencies:
     "@commitlint/config-conventional": ^17.0.2
     "@evilmartians/lefthook": ^1.5.0
-    "@radiusnetworks/react-native-flybuy-core": ^2.28.1
+    "@radiusnetworks/react-native-flybuy-core": ^2.29.0
     "@react-native/eslint-config": ^0.79.0
     "@release-it/conventional-changelog": ^5.0.0
     "@types/jest": ^29.5.5
@@ -3824,7 +3824,7 @@ __metadata:
   dependencies:
     "@commitlint/config-conventional": ^17.0.2
     "@evilmartians/lefthook": ^1.5.0
-    "@radiusnetworks/react-native-flybuy-core": ^2.28.1
+    "@radiusnetworks/react-native-flybuy-core": ^2.29.0
     "@react-native/eslint-config": ^0.79.0
     "@release-it/conventional-changelog": ^5.0.0
     "@types/jest": ^29.5.5
@@ -3855,7 +3855,7 @@ __metadata:
   dependencies:
     "@commitlint/config-conventional": ^17.0.2
     "@evilmartians/lefthook": ^1.5.0
-    "@radiusnetworks/react-native-flybuy-core": ^2.28.1
+    "@radiusnetworks/react-native-flybuy-core": ^2.29.0
     "@react-native/eslint-config": ^0.79.0
     "@release-it/conventional-changelog": ^5.0.0
     "@types/jest": ^29.5.5
@@ -3886,7 +3886,7 @@ __metadata:
   dependencies:
     "@commitlint/config-conventional": ^17.0.2
     "@evilmartians/lefthook": ^1.5.0
-    "@radiusnetworks/react-native-flybuy-core": ^2.28.1
+    "@radiusnetworks/react-native-flybuy-core": ^2.29.0
     "@react-native/eslint-config": ^0.79.0
     "@release-it/conventional-changelog": ^5.0.0
     "@types/jest": ^29.5.5

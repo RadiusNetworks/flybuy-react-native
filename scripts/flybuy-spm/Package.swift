@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "FlyBuyResolver",
     dependencies: [
-        .package(url: "https://github.com/RadiusNetworks/flybuy-ios", exact: "2.13.2")
+        .package(url: "https://github.com/RadiusNetworks/flybuy-ios", exact: "2.13.4")
     ],
     targets: [
         .target(name: "FlyBuyResolver", path: "Sources", sources: ["empty.swift"])

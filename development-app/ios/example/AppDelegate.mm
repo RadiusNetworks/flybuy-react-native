@@ -26,6 +26,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   self.moduleName = @"example";
+  // SceneDelegate creates the window and loads React Native into it (UIScene life cycle, required on iOS 27).
+  self.automaticallyLoadReactNativeWindow = NO;
   self.dependencyProvider = [RCTAppDependencyProvider new];
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.
